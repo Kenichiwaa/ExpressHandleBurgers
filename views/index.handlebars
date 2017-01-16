@@ -1,0 +1,19 @@
+<h1>Burgers!</h1>
+
+<h2>Burgers that have not been devoured</h2>
+
+<ul>
+  {{#each burgers}}
+    {{#unless this.devoured}}
+      <li>
+        {{this.burger_name}}
+          <form action="hamburgers/update/{{this.id}}?_method=PUT" method="POST">
+            <input type="hidden" name="devoured" value="true">
+            <button type="submit">Devoured!</button>
+          </form>
+
+        {{> cats/delete-cat}}
+      </li>
+    {{/unless}}
+  {{/each}}
+</ul>
