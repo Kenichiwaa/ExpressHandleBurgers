@@ -11,8 +11,20 @@
             <input type="hidden" name="devoured" value="true">
             <button type="submit">Devoured!</button>
           </form>
-
+        {{> burgers/delete-burger}}
       </li>
     {{/unless}}
   {{/each}}
 </ul>
+
+<h2> Burgers that have been destoyed</h2>
+
+<!-- <ul>
+  {{#each burgers}}
+    {{#if this.devoured}}
+      <li>
+
+      </li>
+    {{/if}}
+  {{/each}}
+</ul> -->
