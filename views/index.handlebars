@@ -1,55 +1,77 @@
-<h1>Burgers!</h1>
 
-<h2>Burgers that have not been devoured</h2>
+<h1>Hamburguesa's</h1>
 
-<ul>
-  {{#each burgers}}
-    {{#unless this.devoured}}
-      <li>
-        {{this.burger_name}}
+<div class="col s6">
+    <h5>Burgers that have not been devoured</h5>
+
+    <ul>
+      {{#each burgers}}
+        {{#unless this.devoured}}
+          <li>
+            {{this.burger_name}}
+              <form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
+                <input type="hidden" name="devoured" value="true">
+                <button type="submit" class="waves-effect waves-light btn">Devoured!</button>
+              </form>
+
+            {{> burgers/delete-burger}}
+          </li>
+        {{/unless}}
+      {{/each}}
+    </ul>
+</div>
+
+
+<div class="col s6">
+  <h5> Burgers that have been devoured</h5>
+
+  <ul>
+    {{#each burgers}}
+      {{#if this.devoured}}
+        <li>
+          {{this.burger_name}}
           <form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
-            <input type="hidden" name="devoured" value="true">
-            <button type="submit">Devoured!</button>
+            <input type="hidden" name="devoured" value="false" />
+            <button type="submit" class="waves-effect waves-light btn">Un-devour</button>
           </form>
 
-        {{> burgers/delete-burger}}
-      </li>
-    {{/unless}}
-  {{/each}}
-</ul>
+          {{> burgers/delete-burger}}
+        </li>
+      {{/if}}
+    {{/each}}
+  </ul>
+</div>
 
-<h2> Burgers that have been demolished</h2>
+<div class="col s12">
+  <h2>Add a burger</h2>
+  <form class="create-update-form" action="burgers/create" method="POST">
 
-<ul>
-  {{#each burgers}}
-    {{#if this.devoured}}
-      <li>
-        {{this.burger_name}}
-        <form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
-          <input type="hidden" name="devoured" value="false" />
-          <button type="submit">Un-devour</button>
-        </form>
+    <div class="form-group">
+      <label for="burger_name">Burger Name:</label>
+      <input type="text" id="burger_name" name="burger_name" />
+    </div>
 
-        {{> burgers/delete-burger}}
-      </li>
-    {{/if}}
-  {{/each}}
-</ul>
+    <div class="form-group col s6">
+      <label for="devoured">Devoured?</label><br />
+      <input type="checkbox" name="devoured" value="1" checked />Devoured! <br />
+      <input type="checkbox" name="devoured" value="0" /> Not Devoured
+    </div>
+
+        <!-- Switch -->
+    <div class="switch">
+      <label>
+        Not Devoured
+        <input type="checkbox" value="1" checked>
+        <span class="lever"></span>
+        Devoured!
+      </label>
+    </div>
 
 
-<h2>Add a burger</h2>
-<form class="create-update-form" action="burgers/create" method="POST">
 
-  <div class="form-group">
-    <label for="burger_name">Burger Name:</label>
-    <input type="text" id="burger_name" name="burger_name" />
-  </div>
 
-  <div class="form-group">
-    <label for="devoured">Devoured?</label><br />
-    <input type="radio" name="devoured" value="1" checked />Devoured! <br />
-    <input type="radio" name="devoured" value="0" /> Not Devoured
-  </div>
+    <button type="submit"> Add Burger</button>
+  </form>
+</div>
 
-  <button type="submit"> Add Burger</button>
-</form>
+{{> parallax/parallax2}}
