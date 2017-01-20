@@ -12,7 +12,7 @@
             <button type="submit">Devoured!</button>
           </form>
 
-
+        {{> burgers/delete-burger}}
       </li>
     {{/unless}}
   {{/each}}
@@ -30,6 +30,7 @@
           <button type="submit">Un-devour</button>
         </form>
 
+        {{> burgers/delete-burger}}
       </li>
     {{/if}}
   {{/each}}

@@ -33,7 +33,7 @@ router.post("/burgers/create", function(req, res) {
 router.put("/burgers/update/:id", function(req, res) {
   var condition = "id = " + req.params.id;
 
-  console.log("condition", condition);
+  console.log("Update condition", condition);
 
   burger.update({
     devoured: req.body.devoured
@@ -42,12 +42,14 @@ router.put("/burgers/update/:id", function(req, res) {
   });
 });
 
-// router.delete("/burgers/delete/:id", function(req, res) {
-//   var condition = "id = " + req.params.id;
-//
-//   cat.delete(condition, function() {
-//     res.redirect("/burgers");
-//   });
-// });
+router.delete("/burgers/delete/:id", function(req, res) {
+  var condition = "id = " + req.params.id;
+
+  console.log("Delete burger "+ condition);
+
+  burger.delete(condition, function() {
+    res.redirect("/burgers");
+  });
+});
 
 module.exports = router;
