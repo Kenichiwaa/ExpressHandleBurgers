@@ -1,3 +1,11 @@
+// Object-relational mapping (ORM, O/RM, and O/R mapping tool)
+// in computer science is a programming technique for
+// converting data between incompatible type systems
+// in object-oriented programming languages. This creates,
+// in effect, a "virtual object database" that can be used from within
+// the programming language.
+
+
 var connection = require("../config/connection.js");
 
 // Helper function for SQL question mark syntax.
@@ -71,19 +79,20 @@ var orm = {
 
       cb(result);
     });
-  },
-  delete: function(table, condtion, cb) {
-    var queryString = "DELETE FROM " + table;
-    queryString += " WHERE ";
-    queryString += condition;
-
-    connection.query(queryString, function(err, result) {
-      if (err) {
-        throw err;
-      }
-      cb(result);
-    });
   }
+  // ,
+  // delete: function(table, condtion, cb) {
+  //   var queryString = "DELETE FROM " + table;
+  //   queryString += " WHERE ";
+  //   queryString += condition;
+  //
+  //   connection.query(queryString, function(err, result) {
+  //     if (err) {
+  //       throw err;
+  //     }
+  //     cb(result);
+  //   });
+  // }
 };
 
 
