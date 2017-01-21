@@ -12,7 +12,7 @@ body {
 .parallax-window, .parallax-window2, .parallax-window3 {
   min-height: 600px;
   background: transparent;
- /*-moz-box-shadow:    inset 0 0 20px #3f3f3f;
+ -moz-box-shadow:    inset 0 0 20px #3f3f3f;
  -webkit-box-shadow: inset 0 0 20px #3f3f3f;
- box-shadow:         inset 0 0 20px #3f3f3f;*/
+ box-shadow:         inset 0 0 20px #3f3f3f;
 }
